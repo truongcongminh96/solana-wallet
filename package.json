@@ -1,0 +1,24 @@
+{
+  "name": "solana-wallet",
+  "version": "1.0.0",
+  "description": "Generate a Solana keypair and fund it with devnet SOL using @solana/kit. Part of 100 Days of Solana.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/truongcongminh96/solana-wallet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/truongcongminh96/solana-wallet/issues"
+  },
+  "homepage": "https://github.com/truongcongminh96/solana-wallet#readme",
+  "dependencies": {
+    "@solana/kit": "^6.8.0"
+  }
+}
