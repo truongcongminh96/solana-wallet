@@ -107,6 +107,9 @@ dist
 # Docusaurus cache and generated files
 .docusaurus
 
+# Local Solana devnet wallet
+wallet.json
+
 # Serverless directories
 .serverless/
 
