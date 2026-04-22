@@ -13,15 +13,40 @@ const WALLET_FILE = new URL("./wallet.json", import.meta.url);
 const WALLET_FILE_NAME = "wallet.json";
 const rpc = createSolanaRpc(devnet("https://api.devnet.solana.com"));
 
+function isLegacyWalletFormat(data) {
+  return !Array.isArray(data) && Array.isArray(data?.secretKey);
+}
+
+function getSecretKeyBytes(data) {
+  const secretKey = Array.isArray(data) ? data : data?.secretKey;
+
+  if (!Array.isArray(secretKey) || secretKey.length !== 64) {
+    throw new Error(
+      "Invalid wallet format. Expected a 64-byte secret key array in wallet.json."
+    );
+  }
+
+  return new Uint8Array(secretKey);
+}
+
 async function loadOrCreateWallet() {
   try {
     const data = JSON.parse(await readFile(WALLET_FILE, "utf-8"));
-    const secretBytes = new Uint8Array(data.secretKey);
+    const secretBytes = getSecretKeyBytes(data);
     const wallet = await createKeyPairSignerFromBytes(secretBytes);
+
+    if (isLegacyWalletFormat(data)) {
+      await writeFile(WALLET_FILE, JSON.stringify(Array.from(secretBytes), null, 2));
+      console.log(`Migrated ${WALLET_FILE_NAME} to Solana CLI format.`);
+    }
 
     console.log("Loaded existing wallet:", wallet.address);
     return wallet;
-  } catch {
+  } catch (error) {
+    if (error?.code !== "ENOENT") {
+      throw error;
+    }
+
     const keyPair = await generateKeyPair(true);
 
     const publicKeyBytes = new Uint8Array(
@@ -36,7 +61,7 @@ async function loadOrCreateWallet() {
 
     await writeFile(
       WALLET_FILE,
-      JSON.stringify({ secretKey: Array.from(keypairBytes) }, null, 2)
+      JSON.stringify(Array.from(keypairBytes), null, 2)
     );
 
     const wallet = await createSignerFromKeyPair(keyPair);

@@ -1,11 +1,12 @@
 # Solana Wallet
 
-Mini project for Day 1 and Day 2 of the "100 Days of Solana" challenge using [`@solana/kit`](https://www.npmjs.com/package/@solana/kit).
+Mini project for Day 1, Day 2, and Day 3 of the "100 Days of Solana" challenge using [`@solana/kit`](https://www.npmjs.com/package/@solana/kit).
 
 This repo currently includes:
 
 - `create-wallet.mjs` for Day 1
 - `persistent-wallet.mjs` for Day 2
+- `understand-sol-lamports.mjs` for Day 3
 
 ## Prerequisites
 
@@ -59,7 +60,7 @@ What it does:
 
 - Tries to read an existing wallet from `wallet.json`
 - Creates a new extractable keypair if the file does not exist
-- Saves the keypair in Solana's 64-byte secret key format
+- Saves the keypair as a 64-byte JSON array compatible with the Solana CLI
 - Reconstructs the signer with `createKeyPairSignerFromBytes(...)`
 - Fetches the wallet balance from Solana devnet
 
@@ -83,10 +84,51 @@ This wallet has no SOL. Visit https://faucet.solana.com/ and airdrop some to:
 
 If devnet RPC is temporarily unavailable, the script shows a friendly message instead of crashing.
 
+## Day 3: Understand SOL and Lamports
+
+`understand-sol-lamports.mjs` uses the persistent wallet from Day 2 and shows the wallet balance in both `SOL` and `lamports`.
+
+Run it with:
+
+```bash
+node understand-sol-lamports.mjs
+```
+
+What it does:
+
+- Loads the wallet from `wallet.json`
+- Fetches the balance from Solana devnet in lamports
+- Converts lamports to SOL using exact integer-safe formatting
+- Converts the displayed SOL amount back into lamports to verify the math
+- Looks up the most recent transaction and prints its fee in both lamports and SOL when available
+
+Example output:
+
+```text
+Address: <WALLET_ADDRESS>
+Balance: 2000000000 lamports
+Balance: 2 SOL
+Math check: 2 SOL = 2000000000 lamports
+
+Latest signature: <SIGNATURE>
+Latest fee: 5000 lamports
+Latest fee: 0.000005 SOL
+```
+
+This script avoids floating point math for conversions so the result stays exact.
+
+If you want to follow the original challenge exactly, you can also install the Solana CLI and compare:
+
+```bash
+solana balance --url devnet
+solana balance --url devnet --lamports
+```
+
 ## Project Files
 
 - `create-wallet.mjs`: Day 1 wallet creation
 - `persistent-wallet.mjs`: Day 2 persistent wallet and balance check
+- `understand-sol-lamports.mjs`: Day 3 SOL and lamports conversion demo
 - `wallet.json`: generated local wallet file for Day 2
 
 ## Security Note
