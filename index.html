@@ -436,6 +436,98 @@
         line-height: 1.7;
       }
 
+
+      .dashboard-grid {
+        margin-top: 24px;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .query-box {
+        display: grid;
+        gap: 12px;
+      }
+
+      .query-label {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .address-input {
+        width: 100%;
+        min-height: 48px;
+        padding: 0 14px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        color: var(--text);
+        font: inherit;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        outline: none;
+      }
+
+      .address-input:focus {
+        border-color: rgba(92, 244, 200, 0.42);
+        box-shadow: 0 0 0 4px rgba(92, 244, 200, 0.08);
+      }
+
+      .dashboard-results {
+        margin-top: 20px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .dashboard-balance {
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: linear-gradient(180deg, rgba(92, 244, 200, 0.12), rgba(122, 162, 255, 0.08));
+      }
+
+      .dashboard-balance__label {
+        color: var(--muted);
+        font-size: 13px;
+        margin-bottom: 6px;
+      }
+
+      .dashboard-balance__value {
+        font-size: clamp(28px, 5vw, 52px);
+        font-weight: 850;
+        line-height: 1;
+        overflow-wrap: anywhere;
+      }
+
+      .transaction-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .transaction-card {
+        padding: 14px;
+        border-radius: 16px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.035);
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      .transaction-row {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        gap: 10px;
+      }
+
+      .transaction-label { color: var(--muted); }
+
+      .transaction-value {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        word-break: break-all;
+      }
+
+      .transaction-status--success { color: var(--accent); font-weight: 800; }
+      .transaction-status--failed { color: var(--danger); font-weight: 800; }
+
       .hidden { display: none !important; }
 
       @media (max-width: 820px) {
@@ -517,6 +609,36 @@
             </p>
           </div>
         </aside>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel">
+          <div class="panel__header">
+            <h2 class="panel__title">Devnet address dashboard</h2>
+            <p class="panel__subtitle">
+              Day 10 challenge: enter any Solana devnet address, then fetch its SOL balance and 5 most recent transactions.
+            </p>
+          </div>
+          <div class="panel__body">
+            <div class="query-box">
+              <label class="query-label" for="addressInput">Solana devnet address</label>
+              <input
+                class="address-input"
+                id="addressInput"
+                type="text"
+                value="TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+                placeholder="Paste a Solana devnet address"
+              />
+              <div class="actions">
+                <button class="primary-btn" id="fetchDashboardBtn">Fetch data</button>
+              </div>
+            </div>
+
+            <div id="dashboardStatus" class="state-banner hidden"></div>
+            <div id="dashboardError" class="error-banner hidden" role="alert"></div>
+            <div id="dashboardResults" class="dashboard-results"></div>
+          </div>
+        </article>
       </section>
     </main>
 

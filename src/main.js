@@ -12,6 +12,11 @@ const elements = {
   connected: document.getElementById("connected"),
   status: document.getElementById("status"),
   error: document.getElementById("error"),
+  addressInput: document.getElementById("addressInput"),
+  fetchDashboardBtn: document.getElementById("fetchDashboardBtn"),
+  dashboardStatus: document.getElementById("dashboardStatus"),
+  dashboardError: document.getElementById("dashboardError"),
+  dashboardResults: document.getElementById("dashboardResults"),
 };
 
 const state = {
@@ -311,12 +316,113 @@ async function disconnectWallet() {
   }
 }
 
+function setDashboardStatus(message) {
+  if (!message) {
+    elements.dashboardStatus.textContent = "";
+    elements.dashboardStatus.classList.add("hidden");
+    return;
+  }
+
+  elements.dashboardStatus.textContent = message;
+  elements.dashboardStatus.classList.remove("hidden");
+}
+
+function setDashboardError(message) {
+  if (!message) {
+    elements.dashboardError.textContent = "";
+    elements.dashboardError.classList.add("hidden");
+    return;
+  }
+
+  elements.dashboardError.textContent = message;
+  elements.dashboardError.classList.remove("hidden");
+}
+
+function formatDashboardTime(blockTime) {
+  if (!blockTime) return "unknown";
+  return new Date(Number(blockTime) * 1000).toLocaleString();
+}
+
+function renderDashboardTransactions(signatures) {
+  if (signatures.length === 0) {
+    return `<p class="footer-note">No transactions found for this address.</p>`;
+  }
+
+  return `
+    <h3 class="panel__title">Recent transactions</h3>
+    <div class="transaction-list">
+      ${signatures
+        .map((tx) => {
+          const statusClass = tx.err
+            ? "transaction-status--failed"
+            : "transaction-status--success";
+          const statusText = tx.err ? "Failed" : "Success";
+          const explorerUrl = `https://explorer.solana.com/tx/${tx.signature}?cluster=devnet`;
+
+          return `
+            <article class="transaction-card">
+              <div class="transaction-row">
+                <span class="transaction-label">Signature</span>
+                <a class="transaction-value" href="${explorerUrl}" target="_blank" rel="noreferrer">${tx.signature}</a>
+              </div>
+              <div class="transaction-row">
+                <span class="transaction-label">Slot</span>
+                <span class="transaction-value">${tx.slot}</span>
+              </div>
+              <div class="transaction-row">
+                <span class="transaction-label">Time</span>
+                <span class="transaction-value">${formatDashboardTime(tx.blockTime)}</span>
+              </div>
+              <div class="transaction-row">
+                <span class="transaction-label">Status</span>
+                <span class="transaction-value ${statusClass}">${statusText}</span>
+              </div>
+            </article>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
+}
+
+async function fetchDashboardData() {
+  setDashboardError("");
+  elements.dashboardResults.innerHTML = "";
+  setDashboardStatus("Fetching devnet data…");
+
+  try {
+    const targetAddress = address(elements.addressInput.value.trim());
+
+    const [{ value: balanceInLamports }, signatures] = await Promise.all([
+      rpc.getBalance(targetAddress).send(),
+      rpc.getSignaturesForAddress(targetAddress, { limit: 5 }).send(),
+    ]);
+
+    const balanceInSol = Number(balanceInLamports) / LAMPORTS_PER_SOL;
+
+    elements.dashboardResults.innerHTML = `
+      <section class="dashboard-balance">
+        <div class="dashboard-balance__label">Devnet balance</div>
+        <div class="dashboard-balance__value">${balanceInSol.toFixed(9)} SOL</div>
+      </section>
+      ${renderDashboardTransactions(signatures)}
+    `;
+
+    setDashboardStatus("Loaded balance and recent transactions.");
+  } catch (error) {
+    setDashboardError(`Error: ${normalizeError(error)}`);
+    setDashboardStatus("");
+  }
+}
+
 function syncWalletRegistry(walletRegistry) {
   state.wallets = walletRegistry.get().filter(isSolanaWallet);
   renderWalletList();
 }
 
 function init() {
+  elements.fetchDashboardBtn?.addEventListener("click", fetchDashboardData);
+
   const walletRegistry = getWallets();
   syncWalletRegistry(walletRegistry);
 
