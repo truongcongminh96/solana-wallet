@@ -28,6 +28,28 @@ npm run dev
 
 Then open the local Vite URL in the same browser where your wallet extension is installed.
 
+## Day 23: Account Explorer
+
+This repo also includes a terminal account explorer:
+
+```bash
+node explorer.mjs <SOLANA_ADDRESS>
+```
+
+Try a program account:
+
+```bash
+node explorer.mjs TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA
+```
+
+Or try the generated devnet wallet from this repo:
+
+```bash
+node explorer.mjs BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+```
+
+The explorer prints the devnet balance, owner, executable flag, rent epoch, data size, and a short base64 data preview.
+
 ## Before testing
 
 1. Install a browser wallet such as Phantom.
