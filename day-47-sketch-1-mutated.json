@@ -1,0 +1,16 @@
+{
+  "name": "Field Notes",
+  "symbol": "SK1",
+  "description": "A live-mutated Token-2022 NFT metadata record on Solana devnet.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/7/70/Example.png",
+  "attributes": [
+    {
+      "trait_type": "Mutation",
+      "value": "Live devnet update"
+    },
+    {
+      "trait_type": "Collection",
+      "value": "Solana Sketchbook"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+==============================================================================
+MEMBER NFT DISPLAY
+Mint: 6S4Z6Bhd71NUskriThsvhHwRpKekMotNk8HTf9tDUPiV
+Program: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+Supply: 1
+Decimals: 0
+Mint authority: (not set)
+Freeze authority: (not set)
+Extensions: MetadataPointer, GroupMemberPointer, TokenMetadata, TokenGroupMember
+Metadata pointer: 6S4Z6Bhd71NUskriThsvhHwRpKekMotNk8HTf9tDUPiV
+Member pointer: 6S4Z6Bhd71NUskriThsvhHwRpKekMotNk8HTf9tDUPiV
+TokenMetadata.name: Sketch #1
+TokenMetadata.symbol: SK1
+TokenMetadata.uri: https://gist.githubusercontent.com/MinhTruongFullstackAther/2e5d0bc893c62989fcdf4ef6cca85212/raw/day-45-sketch-1.json
+TokenMetadata.updateAuthority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+TokenGroupMember.group: At9uNgcT1zcmHXrAfsSXr9hCSLHeGsuN6KHSbz5Mr2eW
+TokenGroupMember.memberNumber: 1
+Parent reference equals collection: true
+==============================================================================
+COLLECTION MINT DISPLAY
+Mint: At9uNgcT1zcmHXrAfsSXr9hCSLHeGsuN6KHSbz5Mr2eW
+Program: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+Supply: 0
+Decimals: 0
+Mint authority: (not set)
+Freeze authority: (not set)
+Extensions: MetadataPointer, GroupPointer, TokenMetadata, TokenGroup
+Metadata pointer: At9uNgcT1zcmHXrAfsSXr9hCSLHeGsuN6KHSbz5Mr2eW
+Group pointer: At9uNgcT1zcmHXrAfsSXr9hCSLHeGsuN6KHSbz5Mr2eW
+TokenMetadata.name: Solana Sketchbook
+TokenMetadata.symbol: SKTCH
+TokenMetadata.uri: https://gist.githubusercontent.com/MinhTruongFullstackAther/2e5d0bc893c62989fcdf4ef6cca85212/raw/day-45-collection.json
+TokenMetadata.updateAuthority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+TokenGroup.mint: At9uNgcT1zcmHXrAfsSXr9hCSLHeGsuN6KHSbz5Mr2eW
+TokenGroup.updateAuthority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+TokenGroup.size: 2
+TokenGroup.maxSize: 3
+==============================================================================
+Audit verdict: member group address equals collection mint byte-for-byte.

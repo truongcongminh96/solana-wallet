@@ -1,0 +1,16 @@
+{
+  "name": "First Light",
+  "symbol": "LIGHT",
+  "description": "My first real NFT, minted on Solana devnet during 100 Days of Solana.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Dichroic_filters.jpg",
+  "attributes": [
+    {
+      "trait_type": "Filters",
+      "value": "44"
+    },
+    {
+      "trait_type": "Network",
+      "value": "Devnet"
+    }
+  ]
+}

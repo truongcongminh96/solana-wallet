@@ -1,0 +1,16 @@
+{
+  "name": "Sketch #1",
+  "symbol": "SK1",
+  "description": "The first member NFT in the Solana Sketchbook Token-2022 collection.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Dichroic_filters.jpg",
+  "attributes": [
+    {
+      "trait_type": "Sketch",
+      "value": "1"
+    },
+    {
+      "trait_type": "Collection",
+      "value": "Solana Sketchbook"
+    }
+  ]
+}

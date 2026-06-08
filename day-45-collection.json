@@ -1,0 +1,16 @@
+{
+  "name": "Solana Sketchbook",
+  "symbol": "SKTCH",
+  "description": "A small Token-2022 NFT collection minted on Solana devnet.",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/Dichroic_filters.jpg",
+  "attributes": [
+    {
+      "trait_type": "Network",
+      "value": "Devnet"
+    },
+    {
+      "trait_type": "Max Size",
+      "value": "3"
+    }
+  ]
+}
