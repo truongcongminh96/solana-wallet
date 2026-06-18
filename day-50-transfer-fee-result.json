@@ -1,0 +1,38 @@
+{
+  "date": "2026-06-18",
+  "wallet": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+  "mint": "CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7",
+  "ownerAta": "4ewbLqnLWjzjvdRUvQbxvCqEnof4bSTKuVTd7HRbmiqw",
+  "mintLen": 278,
+  "decimals": 6,
+  "transferFeeBasisPoints": 100,
+  "maximumFeeUi": "1000000",
+  "maximumFeeRaw": "1000000000000",
+  "initialSupplyUi": "1000",
+  "initialSupplyRaw": "1000000000",
+  "currentEpoch": 1088,
+  "verificationTransferUi": "1000",
+  "verificationFeeRaw": "10000000",
+  "verificationFeeUi": "10",
+  "signatures": {
+    "createMint": "38kiBPtJEkB3dm3auGeyEgts1rt48mERLAdBk6cNCuDUdN4kEks1ppWnRU2dkPdLLD3cZzpyLGHuE1PkeBUqNku5",
+    "createAccount": "4nNqbZ8XktbFWkFkxij8BLBE1xVbBMo3BkjUHu3B9wCJcH8ScAhRgv6ReqfiBTp5ESRYi6hL4byYMLEUbseGyZQ9",
+    "mintTo": "2HSWeXLK3wkFEraTqB1vXnqFjFooEpwc2aeGiVQNEunJAVpJXSj8J7XQ31sZpkLHC6HyHZasEmsSs17ACkHTGFNF"
+  },
+  "transferFeeConfig": {
+    "transferFeeConfigAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+    "withdrawWithheldAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+    "withheldAmount": "0",
+    "olderTransferFee": {
+      "epoch": "1088",
+      "maximumFee": "1000000000000",
+      "transferFeeBasisPoints": 100
+    },
+    "newerTransferFee": {
+      "epoch": "1088",
+      "maximumFee": "1000000000000",
+      "transferFeeBasisPoints": 100
+    }
+  },
+  "explorerUrl": "https://explorer.solana.com/address/CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7?cluster=devnet"
+}

@@ -1,0 +1,39 @@
+{
+  "date": "2026-06-18",
+  "wallet": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+  "mint": "CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7",
+  "ownerAta": "4ewbLqnLWjzjvdRUvQbxvCqEnof4bSTKuVTd7HRbmiqw",
+  "recipientWallet": "7cAjT4cocUk6hrVQxYo8nFSM13fKvAsryMWeAXkruqpM",
+  "recipientAta": "F8Rtxug8JJZN6xJ5ebNGFhX8RoSGXhARVTjLT9MZcFE7",
+  "decimals": 6,
+  "currentEpoch": 1088,
+  "freshSupplyUi": "1000000",
+  "freshSupplyRaw": "1000000000000",
+  "transferAmountUi": "1000",
+  "transferAmountRaw": "1000000000",
+  "expectedFeeRaw": "10000000",
+  "expectedFeeUi": "10",
+  "balances": {
+    "ownerBefore": "1000000000",
+    "ownerAfterMint": "1001000000000",
+    "ownerAfterTransfer": "1000000000000",
+    "ownerAfterWithdraw": "1000010000000",
+    "recipientAfterTransfer": "990000000",
+    "recipientAfterWithdraw": "990000000"
+  },
+  "withheld": {
+    "beforeWithdrawRaw": "10000000",
+    "afterWithdrawRaw": "0"
+  },
+  "signatures": {
+    "mintFreshSupply": "3NYDQ7PZjSVxWAsy6GgY7tydUeA13xka8a2KE63vZJ3m8qgw9TVjQGk1m9Kaqz2Mf4JefgjnMFUpokdgYdBXYx4g",
+    "createRecipientAta": "5HPkcY6YF5LARysxUEAye85gvZoFViikKcmX2az7rYEXMkTAhxEBrrTWqiYw2tXKoCGmtdkHXXRPpYCmzy2f7s7u",
+    "transfer": "5naKgb4r5ir5DDcCkR5CCGrrwrfPhmLZELjaj2vu9cApqcP5BdgkdqfMPLoCn37P7kxwViNMVegrKcW345zhvCaL",
+    "withdrawWithheld": "5ZsTeURmwLA5d4gARZFMPDLcKU9X5XfQiSkxSxmokUywcGeXEienWdBcPUyGY2vNFZKgj3FXCpYk49EMQ2tuFxKm"
+  },
+  "explorerUrls": {
+    "mint": "https://explorer.solana.com/address/CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7?cluster=devnet",
+    "ownerAta": "https://explorer.solana.com/address/4ewbLqnLWjzjvdRUvQbxvCqEnof4bSTKuVTd7HRbmiqw?cluster=devnet",
+    "recipientAta": "https://explorer.solana.com/address/F8Rtxug8JJZN6xJ5ebNGFhX8RoSGXhARVTjLT9MZcFE7?cluster=devnet"
+  }
+}

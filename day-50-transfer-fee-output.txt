@@ -1,0 +1,40 @@
+# Day 50: Fee-Bearing Token with Token-2022
+
+Date: 2026-06-18
+Cluster: Solana devnet
+Program: Token-2022 (TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb)
+
+Owner wallet: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+Starting balance: 4.83122232 SOL
+
+Mint: CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7
+Owner ATA: 4ewbLqnLWjzjvdRUvQbxvCqEnof4bSTKuVTd7HRbmiqw
+Mint account size: 278 bytes
+Decimals: 6
+Initial supply minted: 1000 tokens (1000000000 raw units)
+
+Extensions
+  TransferFeeConfig
+    transferFeeConfigAuthority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+    withdrawWithheldAuthority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+    withheldAmount: 0 raw units
+    olderTransferFee:
+      epoch: 1088
+      transferFeeBasisPoints: 100
+      maximumFee: 1000000000000 raw units (1000000 tokens)
+    newerTransferFee:
+      epoch: 1088
+      transferFeeBasisPoints: 100
+      maximumFee: 1000000000000 raw units (1000000 tokens)
+
+Verification
+  Current epoch: 1088
+  Fee on a 1000-token transfer at 100 bps: 10000000 raw units (10 tokens)
+
+Transaction signatures
+  Create mint with Transfer Fee extension: 38kiBPtJEkB3dm3auGeyEgts1rt48mERLAdBk6cNCuDUdN4kEks1ppWnRU2dkPdLLD3cZzpyLGHuE1PkeBUqNku5
+  Create owner ATA: 4nNqbZ8XktbFWkFkxij8BLBE1xVbBMo3BkjUHu3B9wCJcH8ScAhRgv6ReqfiBTp5ESRYi6hL4byYMLEUbseGyZQ9
+  Mint initial supply: 2HSWeXLK3wkFEraTqB1vXnqFjFooEpwc2aeGiVQNEunJAVpJXSj8J7XQ31sZpkLHC6HyHZasEmsSs17ACkHTGFNF
+
+Explorer
+  https://explorer.solana.com/address/CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7?cluster=devnet

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 51 Terminal Proof</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, #183a2d 0%, #0d1117 45%),
+          linear-gradient(180deg, #0d1117 0%, #070a0f 100%);
+        font-family: Consolas, "Courier New", monospace;
+        color: #d7f9e9;
+      }
+      .frame {
+        width: min(1200px, calc(100vw - 48px));
+        margin: 24px auto;
+        border: 1px solid rgba(125, 255, 190, 0.25);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+        background: rgba(7, 12, 18, 0.92);
+      }
+      .bar {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 14px 18px;
+        background: rgba(17, 24, 32, 0.98);
+        border-bottom: 1px solid rgba(125, 255, 190, 0.16);
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+      }
+      .dot.red { background: #ff5f57; }
+      .dot.yellow { background: #febc2e; }
+      .dot.green { background: #28c840; }
+      .title {
+        margin-left: 10px;
+        color: #8abca5;
+        font-size: 14px;
+      }
+      pre {
+        margin: 0;
+        padding: 24px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        line-height: 1.55;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="title">day-51 terminal proof</span>
+      </div>
+      <pre>RPC-driven equivalent of the Day 51 CLI flow
+Local shell note: solana/spl-token CLIs were not in PATH, so this proof comes from the Node RPC script.
+
+export MINT=CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7
+export RECIPIENT=7cAjT4cocUk6hrVQxYo8nFSM13fKvAsryMWeAXkruqpM
+export RECIPIENT_TA=F8Rtxug8JJZN6xJ5ebNGFhX8RoSGXhARVTjLT9MZcFE7
+export MY_TA=4ewbLqnLWjzjvdRUvQbxvCqEnof4bSTKuVTd7HRbmiqw
+
+spl-token mint $MINT 1000000
+Signature: 3NYDQ7PZjSVxWAsy6GgY7tydUeA13xka8a2KE63vZJ3m8qgw9TVjQGk1m9Kaqz2Mf4JefgjnMFUpokdgYdBXYx4g
+
+spl-token create-account $MINT --owner $RECIPIENT --fee-payer ~/.config/solana/id.json
+Signature: 5HPkcY6YF5LARysxUEAye85gvZoFViikKcmX2az7rYEXMkTAhxEBrrTWqiYw2tXKoCGmtdkHXXRPpYCmzy2f7s7u
+Created token account: F8Rtxug8JJZN6xJ5ebNGFhX8RoSGXhARVTjLT9MZcFE7
+
+spl-token transfer --expected-fee 10 $MINT 1000 $RECIPIENT --allow-unfunded-recipient
+Signature: 5naKgb4r5ir5DDcCkR5CCGrrwrfPhmLZELjaj2vu9cApqcP5BdgkdqfMPLoCn37P7kxwViNMVegrKcW345zhvCaL
+
+spl-token display $RECIPIENT_TA
+Address: F8Rtxug8JJZN6xJ5ebNGFhX8RoSGXhARVTjLT9MZcFE7
+Spendable balance: 990
+Extensions:
+  TransferFeeAmount
+    withheld_amount: 10
+
+spl-token withdraw-withheld-tokens $MY_TA $RECIPIENT_TA
+Signature: 5ZsTeURmwLA5d4gARZFMPDLcKU9X5XfQiSkxSxmokUywcGeXEienWdBcPUyGY2vNFZKgj3FXCpYk49EMQ2tuFxKm
+
+spl-token display $RECIPIENT_TA
+Address: F8Rtxug8JJZN6xJ5ebNGFhX8RoSGXhARVTjLT9MZcFE7
+Spendable balance: 990
+Extensions:
+  TransferFeeAmount
+    withheld_amount: 0
+
+spl-token balance $MINT
+1000010
+</pre>
+    </div>
+  </body>
+</html>
