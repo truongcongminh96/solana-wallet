@@ -1,0 +1,19 @@
+[toolchain]
+package_manager = "npm"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+counter = "37kZusoPQ39BYedYdn7cFCDfsPH5LovqQBS3EGH5T5yW"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "Localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "cargo test -p counter --test counter -- --nocapture"
