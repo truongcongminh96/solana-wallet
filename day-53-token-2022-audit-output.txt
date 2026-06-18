@@ -1,0 +1,55 @@
+spl-token display CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7
+Audit date: 2026-06-18
+Program: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+Address: CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7
+Mint authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+Freeze authority: none
+Decimals: 6
+Raw supply: 1001000000000
+UI supply: 1001000
+Extensions:
+  TransferFeeConfig
+    transfer_fee_config_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+    withdraw_withheld_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+    withheld_amount_on_mint: 0
+    older_epoch: 1088
+    older_transfer_fee_basis_points: 100
+    older_maximum_fee_raw: 1000000000000
+    older_maximum_fee_ui: 1000000
+    newer_epoch: 1088
+    newer_transfer_fee_basis_points: 100
+    newer_maximum_fee_raw: 1000000000000
+    newer_maximum_fee_ui: 1000000
+
+spl-token display 51r9jZ2C3pj5D1GrrwgDFxPDN3xVwaUMUeZ875oYYwPd
+Audit date: 2026-06-18
+Program: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+Address: 51r9jZ2C3pj5D1GrrwgDFxPDN3xVwaUMUeZ875oYYwPd
+Mint authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+Freeze authority: none
+Decimals: 6
+Raw supply: 1000000000000
+UI supply: 1000005.371292
+Extensions:
+  TransferFeeConfig
+    transfer_fee_config_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+    withdraw_withheld_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+    withheld_amount_on_mint: 0
+    older_epoch: 1088
+    older_transfer_fee_basis_points: 100
+    older_maximum_fee_raw: 1000000000000
+    older_maximum_fee_ui: 1000000
+    newer_epoch: 1088
+    newer_transfer_fee_basis_points: 100
+    newer_maximum_fee_raw: 1000000000000
+    newer_maximum_fee_ui: 1000000
+  InterestBearingConfig
+    rate_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+    initialization_timestamp: 1781755210
+    pre_update_average_rate: 5000
+    last_update_timestamp: 1781755210
+    current_rate_basis_points: 5000
+
+Reflection:
+TransferFeeConfig makes the mint skim a protocol-enforced percentage from every transfer and lets the withdraw authority reclaim those withheld tokens later.
+InterestBearingConfig makes the mint report a time-growing UI amount so every holder sees interest accrue even when the raw token amount stored on chain stays unchanged.

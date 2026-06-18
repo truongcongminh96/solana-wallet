@@ -1,0 +1,59 @@
+{
+  "date": "2026-06-18",
+  "mints": {
+    "day50": {
+      "address": "CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7",
+      "decimals": 6,
+      "rawSupply": "1001000000000",
+      "uiSupply": "1001000",
+      "mintAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+      "freezeAuthority": null,
+      "extensions": [
+        "TransferFeeConfig"
+      ],
+      "transferFeeConfig": {
+        "transferFeeConfigAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+        "withdrawWithheldAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+        "withheldAmount": "0",
+        "olderEpoch": "1088",
+        "newerEpoch": "1088",
+        "basisPoints": 100,
+        "maximumFeeRaw": "1000000000000"
+      },
+      "display": "spl-token display CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7\nAudit date: 2026-06-18\nProgram: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb\nAddress: CFTBSCy68VqUzGeMwjmgzufeBgGi64i281f4iUxzavj7\nMint authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq\nFreeze authority: none\nDecimals: 6\nRaw supply: 1001000000000\nUI supply: 1001000\nExtensions:\n  TransferFeeConfig\n    transfer_fee_config_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq\n    withdraw_withheld_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq\n    withheld_amount_on_mint: 0\n    older_epoch: 1088\n    older_transfer_fee_basis_points: 100\n    older_maximum_fee_raw: 1000000000000\n    older_maximum_fee_ui: 1000000\n    newer_epoch: 1088\n    newer_transfer_fee_basis_points: 100\n    newer_maximum_fee_raw: 1000000000000\n    newer_maximum_fee_ui: 1000000"
+    },
+    "day52": {
+      "address": "51r9jZ2C3pj5D1GrrwgDFxPDN3xVwaUMUeZ875oYYwPd",
+      "decimals": 6,
+      "rawSupply": "1000000000000",
+      "uiSupply": "1000005.371292",
+      "mintAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+      "freezeAuthority": null,
+      "extensions": [
+        "TransferFeeConfig",
+        "InterestBearingConfig"
+      ],
+      "transferFeeConfig": {
+        "transferFeeConfigAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+        "withdrawWithheldAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+        "withheldAmount": "0",
+        "olderEpoch": "1088",
+        "newerEpoch": "1088",
+        "basisPoints": 100,
+        "maximumFeeRaw": "1000000000000"
+      },
+      "interestConfig": {
+        "rateAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+        "initializationTimestamp": "1781755210",
+        "preUpdateAverageRate": 5000,
+        "lastUpdateTimestamp": "1781755210",
+        "currentRate": 5000
+      },
+      "display": "spl-token display 51r9jZ2C3pj5D1GrrwgDFxPDN3xVwaUMUeZ875oYYwPd\nAudit date: 2026-06-18\nProgram: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb\nAddress: 51r9jZ2C3pj5D1GrrwgDFxPDN3xVwaUMUeZ875oYYwPd\nMint authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq\nFreeze authority: none\nDecimals: 6\nRaw supply: 1000000000000\nUI supply: 1000005.371292\nExtensions:\n  TransferFeeConfig\n    transfer_fee_config_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq\n    withdraw_withheld_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq\n    withheld_amount_on_mint: 0\n    older_epoch: 1088\n    older_transfer_fee_basis_points: 100\n    older_maximum_fee_raw: 1000000000000\n    older_maximum_fee_ui: 1000000\n    newer_epoch: 1088\n    newer_transfer_fee_basis_points: 100\n    newer_maximum_fee_raw: 1000000000000\n    newer_maximum_fee_ui: 1000000\n  InterestBearingConfig\n    rate_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq\n    initialization_timestamp: 1781755210\n    pre_update_average_rate: 5000\n    last_update_timestamp: 1781755210\n    current_rate_basis_points: 5000"
+    }
+  },
+  "reflection": [
+    "TransferFeeConfig makes the mint skim a protocol-enforced percentage from every transfer and lets the withdraw authority reclaim those withheld tokens later.",
+    "InterestBearingConfig makes the mint report a time-growing UI amount so every holder sees interest accrue even when the raw token amount stored on chain stays unchanged."
+  ]
+}

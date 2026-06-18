@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Day 52 Terminal Proof</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, #173a2c 0%, #0b1018 42%),
+          linear-gradient(180deg, #0b1018 0%, #05080d 100%);
+        font-family: Consolas, "Courier New", monospace;
+        color: #e2f7ee;
+      }
+      .frame {
+        width: min(1280px, calc(100vw - 48px));
+        margin: 24px auto;
+        border: 1px solid rgba(106, 255, 189, 0.25);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+        background: rgba(6, 12, 19, 0.94);
+      }
+      .bar {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 14px 18px;
+        background: rgba(14, 22, 31, 0.98);
+        border-bottom: 1px solid rgba(106, 255, 189, 0.15);
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+      }
+      .dot.red { background: #ff5f57; }
+      .dot.yellow { background: #febc2e; }
+      .dot.green { background: #28c840; }
+      .title {
+        margin-left: 10px;
+        color: #8abca5;
+        font-size: 14px;
+      }
+      pre {
+        margin: 0;
+        padding: 24px;
+        white-space: pre-wrap;
+        word-break: break-word;
+        line-height: 1.5;
+        font-size: 19px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="bar">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="title">day-52 terminal proof</span>
+      </div>
+      <pre>RPC-driven equivalent of the Day 52 CLI flow
+Local shell note: solana/spl-token CLIs were not in PATH, so this proof comes from the Node RPC script.
+
+Wallet: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+export MINT=51r9jZ2C3pj5D1GrrwgDFxPDN3xVwaUMUeZ875oYYwPd
+export MY_TA=FRd5pTCeN6B9pfqn5xVm2xN93TXe4QL2kzB6NBhLeyqh
+export RECIPIENT=3zNHmQyutMKkSsviAhkTxiscknn88t6f6xWrvXstDQxM
+export RECIPIENT_TA=DU4JfPuKqxGEkgrmYPpKj8TJDxhZfsZJ3ChshUMMFHU1
+
+spl-token create-token --program-id TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb --decimals 6 --transfer-fee-basis-points 100 --transfer-fee-maximum-fee 1000000 --interest-rate 5000
+Signature: 2SKUsvypBvtd2PGiz3hZcV6df2sdiw9pEpzQc8wh1in8PzupJzkigVanZnG6UW6xiLhVtP7JStoUoaZt63q6Di5m
+Created mint: 51r9jZ2C3pj5D1GrrwgDFxPDN3xVwaUMUeZ875oYYwPd
+
+spl-token display $MINT
+Mint: 51r9jZ2C3pj5D1GrrwgDFxPDN3xVwaUMUeZ875oYYwPd
+Decimals: 6
+Extensions:
+  TransferFeeConfig
+    transfer_fee_basis_points: 100
+    maximum_fee_ui: 1000000
+    withdraw_withheld_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+  InterestBearingConfig
+    current_rate_basis_points: 5000
+    rate_authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+
+spl-token create-account $MINT
+Signature: 63GYk4XuFxfzM2zvtZkoDs1BpmWBdNfSDFdPjEqJ11e12iHv4CRjG4YWMXuhWiEGbWmoCR8bafGfcGcDDVJUNeAx
+Created token account: FRd5pTCeN6B9pfqn5xVm2xN93TXe4QL2kzB6NBhLeyqh
+
+spl-token mint $MINT 1000000
+Signature: WVxWX526USpqXkarBGfNRmihGox9GRxHSxu1dn668UWhS9dLfSgBnkaU71gF72xnMtG3DJuDxEt31BRdPpBNeTf
+
+spl-token display $MY_TA
+Address: FRd5pTCeN6B9pfqn5xVm2xN93TXe4QL2kzB6NBhLeyqh
+Raw amount: 1000000000000
+UI amount: 1000000.031688
+
+sleep 31
+
+spl-token display $MY_TA
+Address: FRd5pTCeN6B9pfqn5xVm2xN93TXe4QL2kzB6NBhLeyqh
+Raw amount: 1000000000000
+UI amount: 1000000.522867
+
+solana transfer $RECIPIENT 0.01 --allow-unfunded-recipient
+Signature: 2oLggx2bkeEfvMVVMiUTMYGAUCRwN745CyFJrQ9qFmNLzVAeV6CRfJf8SRR5bJCEd2cgAwJLLeEEn9wB5fq2kzWd
+
+spl-token create-account $MINT --owner $RECIPIENT --fee-payer ~/.config/solana/id.json
+Signature: 91xoeZfNm7TWU44xXi8pwW8GLfNPArbDkaui8NcXNYLi6cKjK798Hk2L3fTR5Zvnp4BVDEQU5KoZXm9hHxLjH3y
+Created token account: DU4JfPuKqxGEkgrmYPpKj8TJDxhZfsZJ3ChshUMMFHU1
+
+spl-token transfer $MINT 1000 $RECIPIENT --expected-fee 10
+Signature: 3RsLLC5vn72hhru8YALqS9kHsUebfphpRY3eVfQFhZNW4JzNKVBDaaXLQBsRc1EMviSqycYJNyGfUKHjYmvKagtV
+
+spl-token display $RECIPIENT_TA
+Address: DU4JfPuKqxGEkgrmYPpKj8TJDxhZfsZJ3ChshUMMFHU1
+Raw amount: 990000000
+UI amount: 990.000549
+Extensions:
+  TransferFeeAmount
+    withheld_amount: 10
+
+sleep 8
+
+spl-token display $RECIPIENT_TA
+Address: DU4JfPuKqxGEkgrmYPpKj8TJDxhZfsZJ3ChshUMMFHU1
+Raw amount: 990000000
+UI amount: 990.000674
+Extensions:
+  TransferFeeAmount
+    withheld_amount: 10
+
+spl-token withdraw-withheld-tokens $MY_TA $RECIPIENT_TA
+Signature: 5BrVJxoKKkS4Luc9YeRCiyrNj5nPuLEWzrG6BgjjEEgowiyM98pdHpngyaeUzLNda2pFikpBPj4PsXNBb9Ac55D
+
+spl-token display $RECIPIENT_TA
+Address: DU4JfPuKqxGEkgrmYPpKj8TJDxhZfsZJ3ChshUMMFHU1
+Raw amount: 990000000
+UI amount: 990.000674
+Extensions:
+  TransferFeeAmount
+    withheld_amount: 0
+</pre>
+    </div>
+  </body>
+</html>

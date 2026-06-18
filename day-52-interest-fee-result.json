@@ -1,0 +1,61 @@
+{
+  "date": "2026-06-18",
+  "wallet": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+  "mint": "51r9jZ2C3pj5D1GrrwgDFxPDN3xVwaUMUeZ875oYYwPd",
+  "ownerAta": "FRd5pTCeN6B9pfqn5xVm2xN93TXe4QL2kzB6NBhLeyqh",
+  "recipientWallet": "3zNHmQyutMKkSsviAhkTxiscknn88t6f6xWrvXstDQxM",
+  "recipientAta": "DU4JfPuKqxGEkgrmYPpKj8TJDxhZfsZJ3ChshUMMFHU1",
+  "mintLen": 334,
+  "decimals": 6,
+  "transferFeeBasisPoints": 100,
+  "maximumFeeUi": "1000000",
+  "maximumFeeRaw": "1000000000000",
+  "interestRateBasisPoints": 5000,
+  "currentEpoch": 1088,
+  "ownerSnapshots": {
+    "rawAmount": "1000000000000",
+    "uiAmount1": "1000000.031688",
+    "uiAmount2": "1000000.522867"
+  },
+  "recipientSnapshots": {
+    "rawAmount": "990000000",
+    "uiAmount1": "990.000549",
+    "uiAmount2": "990.000674"
+  },
+  "withheld": {
+    "beforeWithdrawRaw": "10000000",
+    "afterWithdrawRaw": "0"
+  },
+  "signatures": {
+    "createMint": "2SKUsvypBvtd2PGiz3hZcV6df2sdiw9pEpzQc8wh1in8PzupJzkigVanZnG6UW6xiLhVtP7JStoUoaZt63q6Di5m",
+    "createOwnerAta": "63GYk4XuFxfzM2zvtZkoDs1BpmWBdNfSDFdPjEqJ11e12iHv4CRjG4YWMXuhWiEGbWmoCR8bafGfcGcDDVJUNeAx",
+    "mintSupply": "WVxWX526USpqXkarBGfNRmihGox9GRxHSxu1dn668UWhS9dLfSgBnkaU71gF72xnMtG3DJuDxEt31BRdPpBNeTf",
+    "solTopup": "2oLggx2bkeEfvMVVMiUTMYGAUCRwN745CyFJrQ9qFmNLzVAeV6CRfJf8SRR5bJCEd2cgAwJLLeEEn9wB5fq2kzWd",
+    "createRecipientAta": "91xoeZfNm7TWU44xXi8pwW8GLfNPArbDkaui8NcXNYLi6cKjK798Hk2L3fTR5Zvnp4BVDEQU5KoZXm9hHxLjH3y",
+    "transfer": "3RsLLC5vn72hhru8YALqS9kHsUebfphpRY3eVfQFhZNW4JzNKVBDaaXLQBsRc1EMviSqycYJNyGfUKHjYmvKagtV",
+    "withdrawWithheld": "5BrVJxoKKkS4Luc9YeRCiyrNj5nPuLEWzrG6BgjjEEgowiyM98pdHpngyaeUzLNda2pFikpBPj4PsXNBb9Ac55D"
+  },
+  "transferFeeConfig": {
+    "transferFeeConfigAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+    "withdrawWithheldAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+    "withheldAmount": "0",
+    "olderTransferFee": {
+      "epoch": "1088",
+      "maximumFee": "1000000000000",
+      "transferFeeBasisPoints": 100
+    },
+    "newerTransferFee": {
+      "epoch": "1088",
+      "maximumFee": "1000000000000",
+      "transferFeeBasisPoints": 100
+    }
+  },
+  "interestConfig": {
+    "rateAuthority": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+    "initializationTimestamp": "1781755210",
+    "preUpdateAverageRate": 5000,
+    "lastUpdateTimestamp": "1781755210",
+    "currentRate": 5000
+  },
+  "explorerUrl": "https://explorer.solana.com/address/51r9jZ2C3pj5D1GrrwgDFxPDN3xVwaUMUeZ875oYYwPd?cluster=devnet"
+}

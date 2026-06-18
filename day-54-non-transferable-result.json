@@ -1,0 +1,35 @@
+{
+  "date": "2026-06-18",
+  "wallet": "BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq",
+  "mint": "GnHWVxdfWgDqbpDVgZbEdWbZ8wrX4Ct5fP5uyMEY4MPW",
+  "ownerAta": "5wmC3KoEqu3QHC3K3WpDcjqYTMheKBf59vodNHbpxKKo",
+  "recipientWallet": "E2R4uL9BqbDrLQyPTzNe8uCM3L4MnYxLJz5xBGjQpcQ",
+  "recipientAta": "3Ed3uQ88Ns9XTDUemyk2Sd6JSMoqwheC37iSiTXL8aGd",
+  "decimals": 0,
+  "supply": "1",
+  "mintLen": 170,
+  "extensions": {
+    "mintHasNonTransferable": true,
+    "ownerHasNonTransferableAccount": true,
+    "recipientHasNonTransferableAccount": true
+  },
+  "signatures": {
+    "createMint": "2Xdu4w9mjDkD5GfWUKnXH4LoyiVNrLrcmJW8up9wDiC3BUvkLhwqCEtVHMpbvnMXatY7LbPJmkm7L4QQHbBHZjBR",
+    "createOwnerAta": "2JFHprh1GsmHeCc5BMeAA9WpXZynq14WKD7ujKvXm9anC7SH4pbBYdBRh2qeC4AN7fB4MkfLXWYjTmncRtyMXiW6",
+    "mintTo": "4czYkGyK2PVZm3zzWyye9o2SPhYWC7NGvuvVEQ4tZgppckA624LLCb2KE4RTgWG5hNJnyqRjnoUHoYbZ2irHYcbh",
+    "createRecipientAta": "wmceWCRofSTF2Uydfgt65cJLcDWvoUgJfsKAyyckp2fBeM3BNqdh7bwVqxD1719SCMhQTeMszigagQGBiRjfnSs"
+  },
+  "transferFailure": {
+    "ok": false,
+    "signature": null,
+    "message": "Simulation failed. \nMessage: Transaction simulation failed: Error processing Instruction 0: custom program error: 0x25. \nLogs: \n[\n  \"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb invoke [1]\",\n  \"Program log: Instruction: TransferChecked\",\n  \"Program log: Transfer is disabled for this mint\",\n  \"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb consumed 1570 of 200000 compute units\",\n  \"Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb failed: custom program error: 0x25\"\n]. \nCatch the `SendTransactionError` and call `getLogs()` on it for full details.",
+    "logs": [
+      "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb invoke [1]",
+      "Program log: Instruction: TransferChecked",
+      "Program log: Transfer is disabled for this mint",
+      "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb consumed 1570 of 200000 compute units",
+      "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb failed: custom program error: 0x25"
+    ]
+  },
+  "explorerUrl": "https://explorer.solana.com/address/GnHWVxdfWgDqbpDVgZbEdWbZ8wrX4Ct5fP5uyMEY4MPW?cluster=devnet"
+}

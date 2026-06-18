@@ -1,0 +1,2 @@
+TransferFeeConfig makes the mint skim a protocol-enforced percentage from every transfer and lets the withdraw authority reclaim those withheld tokens later.
+InterestBearingConfig makes the mint report a time-growing UI amount so every holder sees interest accrue even when the raw token amount stored on chain stays unchanged.

@@ -1,0 +1,50 @@
+RPC-driven equivalent of the Day 54 CLI flow
+Local shell note: solana/spl-token CLIs were not in PATH, so this proof comes from the Node RPC script.
+
+Wallet: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+export MINT=GnHWVxdfWgDqbpDVgZbEdWbZ8wrX4Ct5fP5uyMEY4MPW
+export RECIPIENT=E2R4uL9BqbDrLQyPTzNe8uCM3L4MnYxLJz5xBGjQpcQ
+
+spl-token create-token --program-2022 --enable-non-transferable
+Signature: 2Xdu4w9mjDkD5GfWUKnXH4LoyiVNrLrcmJW8up9wDiC3BUvkLhwqCEtVHMpbvnMXatY7LbPJmkm7L4QQHbBHZjBR
+Created mint: GnHWVxdfWgDqbpDVgZbEdWbZ8wrX4Ct5fP5uyMEY4MPW
+
+spl-token create-account $MINT
+Signature: 2JFHprh1GsmHeCc5BMeAA9WpXZynq14WKD7ujKvXm9anC7SH4pbBYdBRh2qeC4AN7fB4MkfLXWYjTmncRtyMXiW6
+Created token account: 5wmC3KoEqu3QHC3K3WpDcjqYTMheKBf59vodNHbpxKKo
+
+spl-token mint $MINT 1
+Signature: 4czYkGyK2PVZm3zzWyye9o2SPhYWC7NGvuvVEQ4tZgppckA624LLCb2KE4RTgWG5hNJnyqRjnoUHoYbZ2irHYcbh
+
+spl-token create-account $MINT --owner $RECIPIENT --fee-payer ~/.config/solana/id.json
+Signature: wmceWCRofSTF2Uydfgt65cJLcDWvoUgJfsKAyyckp2fBeM3BNqdh7bwVqxD1719SCMhQTeMszigagQGBiRjfnSs
+Created token account: 3Ed3uQ88Ns9XTDUemyk2Sd6JSMoqwheC37iSiTXL8aGd
+
+spl-token transfer $MINT 1 $RECIPIENT --allow-unfunded-recipient
+Result: FAILED as expected
+Error: Simulation failed. 
+Message: Transaction simulation failed: Error processing Instruction 0: custom program error: 0x25. 
+Logs: 
+[
+  "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb invoke [1]",
+  "Program log: Instruction: TransferChecked",
+  "Program log: Transfer is disabled for this mint",
+  "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb consumed 1570 of 200000 compute units",
+  "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb failed: custom program error: 0x25"
+]. 
+Catch the `SendTransactionError` and call `getLogs()` on it for full details.
+Logs:
+  Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb invoke [1]
+  Program log: Instruction: TransferChecked
+  Program log: Transfer is disabled for this mint
+  Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb consumed 1570 of 200000 compute units
+  Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb failed: custom program error: 0x25
+
+spl-token display $MINT
+Address: GnHWVxdfWgDqbpDVgZbEdWbZ8wrX4Ct5fP5uyMEY4MPW
+Mint authority: BrbBahEL58U9vyXJchryQXreMHxHFKsNe2Kc2dyRCmKq
+Decimals: 0
+Supply: 1
+Extensions:
+  NonTransferable
+
