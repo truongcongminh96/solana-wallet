@@ -1,0 +1,43 @@
+PS C:\Users\minh.truong\SipherLearning\solana-wallet> cargo test -p counter -- --nocapture
+
+running 1 test
+test test_id ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 3 tests
+initialize tx: ok
+increment tx: ok
+test initialize_then_increment ... ok
+
+double initialize result: Err(...)
+logs:
+  Program log: Instruction: Initialize
+  Allocate: account Address { ... } already in use
+test initialize_fails_when_counter_already_exists ... ok
+
+wrong authority result: Err(...)
+logs:
+  Program log: Instruction: Increment
+  Program log: AnchorError caused by account: counter.
+  Error Code: ConstraintHasOne.
+  Error Number: 2001.
+  Error Message: A has one constraint was violated.
+test increment_fails_when_wrong_authority_signs ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+PS C:\Users\minh.truong\SipherLearning\solana-wallet> cargo test -p counter
+
+running 3 tests
+test initialize_then_increment ... ok
+test initialize_fails_when_counter_already_exists ... ok
+test increment_fails_when_wrong_authority_signs ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s

@@ -1,4 +1,4 @@
-use anchor_lang::prelude::*;
+use anchor_lang::{prelude::*, solana_program::program_error::ProgramError};
 
 declare_id!("37kZusoPQ39BYedYdn7cFCDfsPH5LovqQBS3EGH5T5yW");
 
@@ -10,6 +10,15 @@ pub mod counter {
         let counter = &mut ctx.accounts.counter;
         counter.authority = ctx.accounts.authority.key();
         counter.count = 0;
+        Ok(())
+    }
+
+    pub fn increment(ctx: Context<Increment>) -> Result<()> {
+        let counter = &mut ctx.accounts.counter;
+        counter.count = counter
+            .count
+            .checked_add(1)
+            .ok_or(ProgramError::ArithmeticOverflow)?;
         Ok(())
     }
 }
@@ -25,6 +34,13 @@ pub struct Initialize<'info> {
     #[account(mut)]
     pub authority: Signer<'info>,
     pub system_program: Program<'info, System>,
+}
+
+#[derive(Accounts)]
+pub struct Increment<'info> {
+    #[account(mut, has_one = authority)]
+    pub counter: Account<'info, Counter>,
+    pub authority: Signer<'info>,
 }
 
 #[account]

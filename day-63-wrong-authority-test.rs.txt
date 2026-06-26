@@ -1,0 +1,23 @@
+#[test]
+fn increment_fails_when_wrong_authority_signs() {
+    let (mut svm, program_id) = setup_svm_with_program();
+
+    let authority_a = Keypair::new();
+    let authority_b = Keypair::new();
+    svm.airdrop(&authority_a.pubkey(), 1_000_000_000).unwrap();
+    svm.airdrop(&authority_b.pubkey(), 1_000_000_000).unwrap();
+
+    let counter = Keypair::new();
+
+    let init_tx = build_initialize_tx(&svm, program_id, &authority_a, &counter);
+    svm.send_transaction(init_tx)
+        .expect("initialize should succeed");
+
+    let bad_tx = build_increment_tx(&svm, program_id, &authority_b, counter.pubkey());
+    let result = svm.send_transaction(bad_tx);
+
+    assert!(
+        result.is_err(),
+        "increment should fail when signed by the wrong authority"
+    );
+}
