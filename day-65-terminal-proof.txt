@@ -1,0 +1,29 @@
+PS C:\Users\minh.truong\SipherLearning\solana-wallet> cargo build-sbf --manifest-path programs/counter/Cargo.toml --sbf-out-dir target/deploy
+
+   Compiling counter v0.1.0 (C:\Users\minh.truong\SipherLearning\solana-wallet\programs\counter)
+warning: `counter` (lib) generated 5 warnings
+    Finished `release` profile [optimized] target(s) in 1m 43s
+
+PS C:\Users\minh.truong\SipherLearning\solana-wallet> cargo test -p counter -- --nocapture
+
+running 1 test
+test test_id ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+alice init_counter: ok
+bob init_counter: ok
+alice increment x2: ok
+bob increment x1: ok
+alice counter 2TzANb8hJUJnoPjeTA9w2SQ9bzaV9nNhGzmk6YzA4XwV: count = 2
+bob counter 4Tf8tRLofMBy65syRSqnXcbSt7hWddnumsF26ijKwW8v: count = 1
+test creates_a_counter_per_user_and_increments_independently ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

@@ -1,0 +1,37 @@
+PS C:\Users\minh.truong\SipherLearning\solana-wallet> cargo build-sbf --manifest-path programs/counter/Cargo.toml --sbf-out-dir target/deploy
+
+   Compiling counter v0.1.0 (C:\Users\minh.truong\SipherLearning\solana-wallet\programs\counter)
+warning: `counter` (lib) generated 7 warnings
+    Finished `release` profile [optimized] target(s) in 1m 29s
+
+PS C:\Users\minh.truong\SipherLearning\solana-wallet> cargo test -p counter -- --nocapture
+
+running 1 test
+test test_id ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 2 tests
+init_config: ok
+init_counter: ok
+increment: ok
+test initializes_config_and_counter_then_increments ... ok
+
+set_paused(true): ok
+paused increment result: Err(...)
+logs:
+  Program log: Instruction: Increment
+  Program log: AnchorError caused by account: config.
+  Error Code: Paused.
+  Error Number: 6001.
+  Error Message: Increments are currently paused.
+set_paused(false): ok
+test refuses_to_increment_when_paused ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
